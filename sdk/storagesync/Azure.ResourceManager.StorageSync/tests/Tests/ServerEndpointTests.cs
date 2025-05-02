@@ -12,6 +12,8 @@ using Azure.Core.TestFramework;
 
 namespace Azure.ResourceManager.StorageSync.Tests
 {
+    // TODO: test coverage for ServerEndpointProvisioningStepStatus
+
     public class ServerEndpointTests : StorageSyncManagementTestBase
     {
         private ResourceGroupResource _resourceGroup;
@@ -21,7 +23,7 @@ namespace Azure.ResourceManager.StorageSync.Tests
 
         private string _serverEndpointName;
 
-        public ServerEndpointTests(bool async) : base(async, ModeFromSourceCode )
+        public ServerEndpointTests(bool async) : base(async)
         {
         }
 

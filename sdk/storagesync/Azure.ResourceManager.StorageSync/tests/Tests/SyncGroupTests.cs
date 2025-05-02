@@ -8,7 +8,6 @@ using Azure.ResourceManager.StorageSync.Models;
 using NUnit.Framework;
 using System.Threading.Tasks;
 using Azure.Core.TestFramework;
-using System;
 
 namespace Azure.ResourceManager.StorageSync.Tests
 {
@@ -19,7 +18,7 @@ namespace Azure.ResourceManager.StorageSync.Tests
         private StorageSyncGroupCreateOrUpdateContent _storageSyncGroupCreateOrUpdateContent;
         private StorageSyncServiceResource _storageSyncServiceResource;
 
-        public SyncGroupTests(bool async) : base(async, ModeFromSourceCode )
+        public SyncGroupTests(bool async) : base(async)
         {
         }
 

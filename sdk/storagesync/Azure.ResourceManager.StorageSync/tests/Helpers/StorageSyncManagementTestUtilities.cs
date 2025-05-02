@@ -23,7 +23,7 @@ namespace Azure.ResourceManager.StorageSync.Tests
                 {"key2","value2"}
             };
 
-        public static void VerifyStorageSyncServiceProperties(StorageSyncServiceResource resource, bool useDefaults)
+        public static void VerifyStorageSyncServiceProperties(StorageSyncServiceResource resource, bool useDefaults, bool isUsingSystemAssignedManagedIdentity)
         {
             Assert.NotNull(resource);
             Assert.NotNull(resource.Id);
@@ -39,6 +39,15 @@ namespace Azure.ResourceManager.StorageSync.Tests
                 Assert.AreEqual(2, resource.Data.Tags.Count);
                 Assert.AreEqual("value1", resource.Data.Tags["key1"]);
                 Assert.AreEqual("value2", resource.Data.Tags["key2"]);
+            }
+
+            if (isUsingSystemAssignedManagedIdentity)
+            {
+                Assert.NotNull(resource.Data.Identity);
+                Assert.AreEqual(resource.Data.Identity.ManagedServiceIdentityType, ManagedServiceIdentityType.SystemAssigned);
+                Assert.NotNull(resource.Data.Identity.PrincipalId);
+                Assert.NotNull(resource.Data.Identity.TenantId);
+                Assert.True(resource.Data.UseIdentity);
             }
         }
 

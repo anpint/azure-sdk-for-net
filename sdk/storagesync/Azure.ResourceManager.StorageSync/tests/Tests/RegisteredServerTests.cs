@@ -12,6 +12,8 @@ using System;
 
 namespace Azure.ResourceManager.StorageSync.Tests
 {
+    // new properties: applicationId, identity, latestapplicationid, activeauthtype, useidentity
+
     public class RegisteredServerTests : StorageSyncManagementTestBase
     {
         private ResourceGroupResource _resourceGroup;
@@ -21,7 +23,7 @@ namespace Azure.ResourceManager.StorageSync.Tests
         private StorageSyncRegisteredServerCreateOrUpdateContent _registeredServerCreateOrUpdateContent;
         private StorageSyncServiceResource _storageSyncServiceResource;
 
-        public RegisteredServerTests(bool async) : base(async, ModeFromSourceCode )
+        public RegisteredServerTests(bool async) : base(async)
         {
         }
 
